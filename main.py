@@ -8,7 +8,8 @@ word = input("Word:")
 url = 'http://www.oxfordlearnersdictionaries.com/us/definition/english/' + word
 response = requests.get(url, headers=headers)
 content = BeautifulSoup(response.content, 'html.parser')
-defs = content.find_all('span', class_="shcut")
+defs = content.find_all('span', class_="def")
 
 for d in defs:
+    print('-', end='')
     print(d.get_text())
